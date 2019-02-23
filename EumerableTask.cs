@@ -62,7 +62,7 @@ namespace PadawansTask15
         /// </example>
         public IEnumerable<long> GetSquareSequence(IEnumerable<int> data)
         {
-            var list = from x in data select Convert.ToInt64(Math.Pow(x, 2));
+            var list = from x in data select Convert.ToInt64(x) * Convert.ToInt64(x);
             return list;
         }
 
@@ -89,7 +89,7 @@ namespace PadawansTask15
             data.ToList().ForEach(s => {
                 if (prefix == String.Empty && s != null)
                     list.Add(s);
-                else if (s.ToLower().Contains(prefix.ToLower()))
+                else if (s != null && s.ToLower().StartsWith(prefix.ToLower()))
                     list.Add(s);
             });
             return list;
